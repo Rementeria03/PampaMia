@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export const Item = ({prod}) => {
 
     return(
-        <Card alt={`/productos/${prod.id}`} style={{margin: "20px"}} sx={{ maxWidth: 200 }}>
+        <Card alt={`/productos/${prod.id}`} style={{margin: "20px"}} sx={{ maxWidth: 200, maxHeigth : 300 }}>
             <CardActionArea style={{flexDirection:'column'}}>
                 <CardMedia
                 component="img"
