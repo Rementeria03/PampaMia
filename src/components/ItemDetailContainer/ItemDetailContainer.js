@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import { useParams } from 'react-router'
 import { pedirDatos } from '../../helpers/pedirDatos';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
+import {LoadingSpinner} from '../LoadingSpinner/LoadingSpinner'
 
 export const ItemDetailContainer = () => {
 
@@ -28,7 +29,13 @@ export const ItemDetailContainer = () => {
             <CssBaseline />
             <Container maxWidth="sm">
                 {loading
-                    ?   <h1>Cargando</h1>
+                    ?   
+                        <>
+                            <CssBaseline />
+                            <Container sx={{display:'flex', justifyContent:'center'}}>
+                                <LoadingSpinner />
+                            </Container>
+                        </>
                     :   <ItemDetail {...item}/>
                 }
             </Container>

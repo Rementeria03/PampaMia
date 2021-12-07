@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Card, CardActionArea, CardActions, CardMedia, CardContent, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardMedia, CardContent, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { IconButton } from '@material-ui/core';
 import { useNavigate } from 'react-router';
@@ -34,25 +34,23 @@ export const ItemDetail = ({id, img, nombre, precio, tipo, material, stock}) => 
 
     return(
             <Card>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="200"
-                        image= {img}
-                        alt={nombre}
-                    />
-                    <CardContent aling='center'>
-                        <Typography sx={{fontSize: '20px'}} align='center'>
-                            {nombre} de {tipo}   
-                        </Typography>
-                        <Typography align='center'>
-                            {`Echo de ${material}, lijada y pintada a mano`}
-                        </Typography>
-                        <Typography align='center'>
-                            {`Precio: $${precio}`}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
+                <CardMedia
+                    component="img"
+                    height="200"
+                    image= {img}
+                    alt={nombre}
+                />
+                <CardContent aling='center'>
+                    <Typography sx={{fontSize: '20px'}} align='center'>
+                        {nombre} de {tipo}   
+                    </Typography>
+                    <Typography align='center'>
+                        {`Echo de ${material}, lijada y pintada a mano`}
+                    </Typography>
+                    <Typography align='center'>
+                        {`Precio: $${precio}`}
+                    </Typography>
+                </ CardContent>
                 <CardActions style={{flexDirection:'column' ,justifyContent: 'space-around'}}>
                     {!estaEnCarrito(id)
                         ?   <ItemCount

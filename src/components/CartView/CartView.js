@@ -12,25 +12,35 @@ export const CartView = () => {
 
     return (
         <>
-            <h1 style={{marginLeft: '50px'}}>Carrito</h1>
-            <CssBaseline />
-            <Container style={{display: "flex", flexWrap: "wrap"}} maxWidth="false">
-                <ProdOfCart borrarDelCarrito={borrarDelCarrito} carrito={carrito} />
-            </ Container>
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    p: 1,
-                    m: 1,
-                    bgcolor: 'background.paper',
-                    boxSizing: 'border-box'
-                }}
-            >
-                <Button onClick={vaciarCarrito}>
-                    Limpiar carrito
-                </Button>
-            </Box>
+            {carrito.length > 0 
+                ? 
+                    <>
+                        <h2 style={{marginLeft: '50px'}}>Carrito</h2>
+                        <CssBaseline />
+                        <Container style={{display: "flex", flexWrap: "wrap"}} maxWidth="false">
+                            <ProdOfCart borrarDelCarrito={borrarDelCarrito} carrito={carrito} />
+                        </Container>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                p: 1,
+                                m: 1,
+                                bgcolor: 'background.paper',
+                                boxSizing: 'border-box'
+                            }}
+                        >
+                            <Button 
+                                onClick={vaciarCarrito}
+                                disabled={carrito.length === 0}
+                            >
+                                Limpiar carrito
+                            </Button>
+                        </Box>
+                    </>
+                : 
+                        <h2 style={{marginLeft: '50px'}}>No hay items en el carrito</h2>
+            }
         </>
     )
 }

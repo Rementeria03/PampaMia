@@ -4,6 +4,7 @@ import {pedirDatos} from '../../helpers/pedirDatos'
 import {ItemList} from '../ItemList/ItemList';
 import Container from '@mui/material/Container';
 import { useParams } from 'react-router';
+import { LoadingSpinner } from '../LoadingSpinner/LoadingSpinner';
 
 export default function ItemListContainer() {
 
@@ -32,13 +33,22 @@ export default function ItemListContainer() {
 
     return (
         <>
-            <CssBaseline />
-            <Container style={{display: "flex", flexWrap: "wrap"}} maxWidth="false">
-                {loading 
-                    ? <h1>Cargando...</h1> 
-                    : <ItemList productos={productos}/>
-                }
-            </Container>
+            {loading 
+                ? 
+                    <>
+                        <CssBaseline />
+                        <Container sx={{display:'flex', justifyContent:'center'}}>
+                            <LoadingSpinner />
+                        </Container>
+                    </>
+                : 
+                    <>
+                        <CssBaseline />
+                        <Container style={{display: "flex", flexWrap: "wrap"}} maxWidth="false">
+                            <ItemList productos={productos}/>
+                        </Container>   
+                    </> 
+            }
         </>
     )
 }
