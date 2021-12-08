@@ -6,8 +6,6 @@ export const CartProvider = ( { children }) => {
 
     const [carrito, setCarrito] = useState([]);
 
-    console.log(carrito)
-
     const agregarAlCarrito = (item) => {
         setCarrito([...carrito, item])
     };

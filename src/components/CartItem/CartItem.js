@@ -27,7 +27,7 @@ export const CartItem = ({id , nombre, precio, cantidad, img, tipo}) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button onClick={() => borrarDelCarrito(id)}>
+                <Button sx={{color: 'red'}} onClick={() => borrarDelCarrito(id)}>
                     <DeleteSweepIcon />
                 </Button>
             </CardActions>

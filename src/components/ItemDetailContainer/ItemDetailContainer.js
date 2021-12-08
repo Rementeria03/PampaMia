@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { CssBaseline } from '@mui/material';
 import Container from '@mui/material/Container';
 import { useParams } from 'react-router'
-import { pedirDatos } from '../../helpers/pedirDatos';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import {LoadingSpinner} from '../LoadingSpinner/LoadingSpinner'
+import { doc, getDoc } from 'firebase/firestore/lite'
+import { db } from '../../firebase/config';
 
 export const ItemDetailContainer = () => {
 
@@ -15,13 +16,19 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
-            .then((resp) =>{
-                setItem(resp.find(prod => prod.id === Number(itemId)))
+
+        const docRef = doc(db, 'productos', itemId)
+        getDoc(docRef)
+            .then((doc) => {
+                setItem({
+                    id: doc.id,
+                    ...doc.data()
+                })
             })
             .finally(() => {
                 setLoading(false)
             })
+        
     }, [itemId])
     
     return (

@@ -53,13 +53,15 @@ export const ItemDetail = ({id, img, nombre, precio, tipo, material, stock}) => 
                 </ CardContent>
                 <CardActions style={{flexDirection:'column' ,justifyContent: 'space-around'}}>
                     {!estaEnCarrito(id)
-                        ?   <ItemCount
-                        handleAgregar={handleAgregar}
-                        cantidad={cantidad}
-                        setCantidad={setCantidad}
-                        max={stock}
-                        />
-                        :   <Button>
+                        ?   
+                            <ItemCount
+                                handleAgregar={handleAgregar}
+                                cantidad={cantidad}
+                                setCantidad={setCantidad}
+                                max={stock}
+                            />
+                        :   
+                            <Button>
                                 <Link to='/cart'>Al carrito</Link>
                             </ Button>
                     }

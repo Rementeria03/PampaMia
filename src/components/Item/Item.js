@@ -17,7 +17,7 @@ export const Item = ({prod}) => {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        <h3>{prod.nombre}</h3>
+                        <h3>{prod.nombre} de {prod.tipo}</h3>
                         <p>Precio ${prod.precio}</p>
                     </Typography>
                 </CardContent>
