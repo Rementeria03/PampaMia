@@ -19,6 +19,10 @@ export const CartProvider = ( { children }) => {
         return carrito.some(prod => prod.id === id)
     }
 
+    const totalCompra = () => {
+        return carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
+    }
+
     const cantidadCarrito = () =>{
         return carrito.reduce((acc, prod) => acc + prod.cantidad, 0)
     }
@@ -31,7 +35,8 @@ export const CartProvider = ( { children }) => {
             borrarDelCarrito,
             vaciarCarrito,
             estaEnCarrito,
-            cantidadCarrito
+            cantidadCarrito,
+            totalCompra
         }}>
             {children}
         </CartContext.Provider>

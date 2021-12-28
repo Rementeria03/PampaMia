@@ -23,9 +23,8 @@ export const Item = ({prod}) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                    <Button size="small" variant='outlined'>Agregar</Button>
                     <Button color='primary' size='small' variant='outlined'>
-                        <Link style={{textDecoration: 'none'}} to={`/detail/${prod.id}`}>Ver mas</Link>
+                        <Link style={{textDecoration: 'none'}} to={`/detail/${prod.id}`}>Agregar</Link>
                     </Button>
             </CardActions>
         </Card>
