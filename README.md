@@ -30,3 +30,9 @@ facilitando el desarrollo de nuestra pagina obteniendo un enorme contenido visua
 ## React Router Dom:
 
     Para el manejo de los Url y redireccionamiento de la pagina
+    
+# Proyecto final:
+
+    En base a todo lo visto se genero una pagina sencilla y de facil entendimiento para el uso facil y rapido
+    utilizando todos los recursos necesarios de manera que sea una experiencia fluida en su totalidad.
+    
