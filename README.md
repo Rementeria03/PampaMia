@@ -1,6 +1,7 @@
 # Proyecto para curso de CoderHouse
 
-    En el siguiente proyecto pasamos de saber Js simple a conocer los fundamentos de React.js. De la mano del profesor Conrado Lanusse pudimos generar nuestra primera aplicacion en React un Eccomerce a eleccion del estudiante, en mi caso:
+    En el siguiente proyecto pasamos de saber Js simple a conocer los fundamentos de React.js.
+    De la mano del profesor Conrado Lanusse pudimos generar nuestra primera aplicacion en React un Eccomerce a eleccion del estudiante, en mi caso:
 
 # Eccomerce con finalidad de vender localmente productos de campo
 
