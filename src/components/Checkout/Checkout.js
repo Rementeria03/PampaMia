@@ -18,6 +18,7 @@ export const Checkout = () => {
             nombre: '',
             apellido: '',
             mail: '',
+            mailConfirm: '',
             telefono: '',
             cp: '',
             localidad: '',

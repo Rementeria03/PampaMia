@@ -15,14 +15,19 @@ export const FormCompra = ({datos, ordersRef, setDatos, carrito, totalCompra}) =
     const {vaciarCarrito} = useContext(CartContext)
 
     const handleEnviar = () => {
-
+        if(datos.mail !== datos.mailConfirm){
+            Swal.fire({
+                icon: 'error',
+                title: 'Emails diferentes'
+            })
+            return;
+        }
         const ordener = {
             buyer: {...datos},
             items: carrito,
             total: totalCompra(),
             fecha: Timestamp.fromDate(new Date())
         }
-
         addDoc(ordersRef, ordener)
             .then((resp) => {
                 Swal.fire({
@@ -36,7 +41,6 @@ export const FormCompra = ({datos, ordersRef, setDatos, carrito, totalCompra}) =
                 navigate('/');
             })
     }
-
     const handleAct = (e) => {
         setDatos({
             ...datos,
@@ -44,7 +48,7 @@ export const FormCompra = ({datos, ordersRef, setDatos, carrito, totalCompra}) =
         })
         console.log(e.target.name, e.target.value)
     }
-
+    
     return (
         <Box sx={{
             component:'form',
@@ -62,6 +66,7 @@ export const FormCompra = ({datos, ordersRef, setDatos, carrito, totalCompra}) =
                 <TextField onChange={handleAct} sx={{marginX: 1, marginY : 1}} name='apellido' label='Apellido'></TextField>
                 <TextField onChange={handleAct} sx={{marginX: 1, marginY : 1}} name='telefono' type='number' label='Telefono'></TextField>
                 <TextField onChange={handleAct} name='mail' sx={{marginX: 1, marginY: 1}} fullWidth label='Mail'></TextField>
+                <TextField onChange={handleAct} name='mailConfirm' sx={{marginX: 1, marginY: 1}} fullWidth label='Mail Confirm'></TextField>
                 <TextField onChange={handleAct} name='calle' sx={{marginX: 1, marginY: 1}} fullWidth label='Calle'></TextField>
                 <TextField onChange={handleAct} name='altura' sx={{marginX: 1, marginY: 1}} type='number' label='altura'></TextField>
                 <TextField onChange={handleAct} name='localidad' sx={{marginX: 1, marginY: 1}} label='localidad'></TextField>
