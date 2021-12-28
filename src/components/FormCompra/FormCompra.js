@@ -2,14 +2,17 @@ import { Box } from '@material-ui/core';
 import Button from '@mui/material/Button';
 import { TextField } from '@mui/material'
 import { addDoc, Timestamp } from 'firebase/firestore/lite';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router';
 import './formCompra.css';
 import Swal from 'sweetalert2';
+import { CartContext } from '../../contexts/CartContext';
 
 export const FormCompra = ({datos, ordersRef, setDatos, carrito, totalCompra}) => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const {vaciarCarrito} = useContext(CartContext)
 
     const handleEnviar = () => {
 
@@ -22,14 +25,14 @@ export const FormCompra = ({datos, ordersRef, setDatos, carrito, totalCompra}) =
 
         addDoc(ordersRef, ordener)
             .then((resp) => {
-                console.log(resp.id)
-            })
-            .finally(() => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Compra registrada con exito',
-                    text: 'Gracias por su compra'
+                    text: `Numero de orden es: ${resp.id}`
                 });
+            })
+            .finally(() => {
+                vaciarCarrito();
                 navigate('/');
             })
     }
